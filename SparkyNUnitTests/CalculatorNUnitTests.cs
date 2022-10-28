@@ -38,7 +38,7 @@ namespace Sparky
             //delta is the number of range ex. between 15.9 and 16.9 delta is 1 
             double delta = 1;
             //Assert
-            Assert.AreEqual(15.9,result, delta);
+            Assert.AreEqual(15.9, result, delta);
         }
         #endregion
         #region OddNumberTests
