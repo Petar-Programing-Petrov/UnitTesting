@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Sparky
+{
+    public class GradingCalculator
+    {
+        public int Score { get; set; }
+        public int AttendancePercentage { get; set; }
+        public string GerGrade()
+        {
+            switch (Score)
+            {
+                case > 90 when AttendancePercentage > 70:
+                    return "A";
+                case > 80 when AttendancePercentage > 60:
+                    return "B";
+                case > 60 when AttendancePercentage > 60:
+                    return "C";
+                default:
+                    return "F";
+            }
+        }
+    }
+}

@@ -8,11 +8,18 @@ namespace Sparky
 {
     public class Customer
     {
-       public string GreetAndCombineNames(string name, string lastName)
+        public int Discount = 15;
+        public string GreetMessage { get; set; }
+
+        public string GreetAndCombineNames(string name, string lastName)
         {
-
-
-            return $"Hello, {name} {lastName}";
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Empty first name");
+            }
+            GreetMessage = $"Hello, {name} {lastName}";
+            Discount = 20;
+            return GreetMessage;
         }
     }
 }

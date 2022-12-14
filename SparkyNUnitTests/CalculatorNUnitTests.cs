@@ -1,9 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sparky
 {
@@ -42,6 +37,13 @@ namespace Sparky
         }
         #endregion
         #region OddNumberTests
+        private Calculator calc;
+        [SetUp]
+        public void SetUp()
+        {
+            calc = new Calculator();
+        }
+
 
         [Test]
         public void IsNumberOdd_IntNumber_ReturnFalse()
@@ -77,6 +79,44 @@ namespace Sparky
         {
             bool result = calculator.IsOddNumber((int)a);
             return result;
+        }
+
+
+
+        [Test]
+        public void OddRanger_InputMinAndMaxRange_ReturnsValidOddNumberRange()
+        {
+            //Arrange
+            List<int> expectedOddRange = new List<int>() { 5, 7, 9 }; //5-10
+
+
+            //Act
+            List<int> result = calc.GetOddRange(5, 10);
+
+
+            //Assert
+            Assert.That(result, Is.EquivalentTo(expectedOddRange)); //specialy for collections
+
+            //Check if a collection contains a spesific value
+            //Assert.Contains(7,result);
+            Assert.That(result, Does.Contain(7));
+
+            //Make shure that the collection does not contain a spesific value
+            Assert.That(result, Has.No.Member(6));
+
+            //Check if result is empty
+            Assert.That(result, Is.Not.Empty);
+
+            //Counter in collections
+            Assert.That(result.Count, Is.EqualTo(3));
+
+            //Check if the order is assending 
+            Assert.That(result, Is.Ordered);
+
+            //Check if the order is descending 
+            //Assert.That(result, Is.Ordered.Descending);
+
+
         }
         #endregion
     }
