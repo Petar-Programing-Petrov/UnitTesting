@@ -21,6 +21,7 @@ namespace Sparky
 
         public bool Deposit(int ammount)
         {
+            _logBook.Log("Deposit invoked");
             Balance += ammount;
             return true;
         }
