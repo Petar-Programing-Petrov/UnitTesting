@@ -1,10 +1,5 @@
 ﻿using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sparky
 {
@@ -22,7 +17,7 @@ namespace Sparky
         {
 
             var logMock = new Mock<ILogBook>();
-
+            logMock.Setup(x => x.Log(""));
             BankAccount bankAccount = new(logMock.Object);
             var result = bankAccount.Deposit(100);
             Assert.IsTrue(result);
